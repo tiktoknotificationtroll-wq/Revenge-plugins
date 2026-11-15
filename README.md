@@ -1,33 +1,33 @@
 # BadgeForge for Revenge
 
-A Revenge plugin repository containing BadgeForge.
+BadgeForge is a JavaScript Revenge plugin packaged as a ZIP containing `manifest.json` and the bundled `index.js`.
 
-## Install in current Revenge
+## Install directly on Android (recommended)
 
-**Add this as a repository, not as a direct plugin/manifest URL.**
+The URL shown in the repeated **Install Failed / Failed to fetch manifest** dialog is being handled as a direct plugin URL, not as a repository index. Do not paste the repository's `index.json` into that direct-plugin importer.
 
-1. Open **Settings → Revenge → Plugins**.
-2. Tap the small **settings gear** beside the Plugins heading.
-3. Choose **Add repository**.
-4. Paste the repository index URL below.
-5. Return to Plugins, open **Browse Plugins** with the + button, find BadgeForge, and install it.
+1. Download the packaged plugin ZIP:
+   https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/pool/dev.nichegames.badgeforge@1.0.0.zip
+2. In Revenge, open Settings → Revenge → Plugins.
+3. Tap the settings gear next to the Plugins heading.
+4. Under Advanced, choose **Install from file**.
+5. Select the downloaded `.zip`.
 
-Repository index URL:
+## Add as a repository (optional)
+
+Use the repository index URL only in the repository manager (settings gear → Add repository), not in the direct plugin URL importer:
 
 ```
 https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/index.json
 ```
 
-The published repository index and package are on the `gh-pages` branch under `index.json` and `pool/`.
+Revenge's repository manager reads `index.json`; direct ZIP sideloading bypasses repository discovery and checksum/index fetching.
 
-## Do not use these
-- Do not paste the repository URL into a legacy single-plugin manifest importer.
-- Do not use the `legacy/badgeforge` folder URL. It is not a current Revenge plugin repository.
-- Do not append a slash to the `index.json` URL.
+## What the plugin does
 
-## BadgeForge limitations
-BadgeForge is a local showcase editor. It cannot grant real Discord-issued badges, alter Discord's server-side account creation date, or modify actual game playtime. Custom values are only mock display data within the plugin.
+BadgeForge currently provides a local profile showcase/settings preview for custom badge labels, a pretend account creation date, and game-hour text. These are mock values; it does not grant Discord-issued badges or change Discord's server-side account metadata or actual game statistics.
 
 ## Source
-Current plugin source: `plugins/badgeforge/js/index.tsx`
-Manifest: `plugins/badgeforge/manifest.json`
+
+- Plugin manifest: `plugins/badgeforge/manifest.json`
+- JavaScript/TypeScript source: `plugins/badgeforge/js/index.tsx`
