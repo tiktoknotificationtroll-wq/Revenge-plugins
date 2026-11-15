@@ -1,0 +1,30 @@
+{
+  "format": 1,
+  "name": "My Plugin Repository",
+  "description": "Example plugin repository from the Revenge plugin template.",
+  "plugins": {
+    "dev.nichegames.badgeforge": {
+      "name": "BadgeForge",
+      "description": "Create a local profile showcase with custom badge labels, pretend account age and game hours.",
+      "author": "Niche Games",
+      "channels": {
+        "latest": "1.0.0"
+      },
+      "versions": {
+        "1.0.0": {
+          "url": "https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/pool/dev.nichegames.badgeforge@1.0.0.zip",
+          "sha256": "b38bcff1805f4065d7c46cccfdb460572c69e5b7aa4b1e0419105aeaa5b3ad68",
+          "size": 1232,
+          "dependencies": {
+            "revenge.api": {
+              "version": ">=1"
+            },
+            "discord": {
+              "version": "*"
+            }
+          }
+        }
+      }
+    }
+  }
+}
