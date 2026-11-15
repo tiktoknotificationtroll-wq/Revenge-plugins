@@ -66,7 +66,7 @@
     active = true;
     try {
       const hook = vendetta.metro.findByName("useBadges", false);
-      if (!hook || typeof hook.default !== "function") throw new Error("Could not find Discord's profile badge hook on this build.");
+      if (!hook || typeof hook !== "function") throw new Error("Could not find Discord's profile badge hook on this build.");
       unpatch = after("default", hook, ([user], original) => {
         if (!get("enabled")) return original;
         const id = user?.userId ?? user?.id;
