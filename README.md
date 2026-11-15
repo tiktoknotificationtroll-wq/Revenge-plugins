@@ -1,33 +1,25 @@
-# BadgeForge for Revenge
+# BadgeForge for classic Revenge
 
-BadgeForge is a JavaScript Revenge plugin packaged as a ZIP containing `manifest.json` and the bundled `index.js`.
+A classic Vendetta-compatible JavaScript plugin for the Revenge Plugins screen shown in older/classic Revenge builds.
 
-## Install directly on Android (recommended)
+## Install
 
-The URL shown in the repeated **Install Failed / Failed to fetch manifest** dialog is being handled as a direct plugin URL, not as a repository index. Do not paste the repository's `index.json` into that direct-plugin importer.
+Use the **folder URL** in Revenge → Plugins → + → Install a plugin:
 
-1. Download the packaged plugin ZIP:
-   https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/pool/dev.nichegames.badgeforge@1.0.0.zip
-2. In Revenge, open Settings → Revenge → Plugins.
-3. Tap the settings gear next to the Plugins heading.
-4. Under Advanced, choose **Install from file**.
-5. Select the downloaded `.zip`.
+`https://tiktoknotificationtroll-wq.github.io/Revenge-plugins/badgeforge/`
 
-## Add as a repository (optional)
+Do not use raw.githubusercontent.com. The classic loader fetches `manifest.json` and then the JavaScript file from the GitHub Pages folder.
 
-Use the repository index URL only in the repository manager (settings gear → Add repository), not in the direct plugin URL importer:
+GitHub Actions deploys the `docs/` folder to GitHub Pages. Wait for the workflow named **Deploy BadgeForge to GitHub Pages** to finish successfully before installing.
 
-```
-https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/index.json
-```
+## Features
 
-Revenge's repository manager reads `index.json`; direct ZIP sideloading bypasses repository discovery and checksum/index fetching.
+- Custom local badge labels, with optional Discord-style icon names
+- Pretend account-created date shown in a custom badge tooltip
+- Game names and pretend hours shown in custom badge tooltips
+- Persistent settings in Revenge plugin storage
+- Patches only the current user's profile badge hook in the local client
 
-## What the plugin does
+## Important
 
-BadgeForge currently provides a local profile showcase/settings preview for custom badge labels, a pretend account creation date, and game-hour text. These are mock values; it does not grant Discord-issued badges or change Discord's server-side account metadata or actual game statistics.
-
-## Source
-
-- Plugin manifest: `plugins/badgeforge/manifest.json`
-- JavaScript/TypeScript source: `plugins/badgeforge/js/index.tsx`
+This is a local visual showcase. It does not grant Discord badges, alter server-side account creation dates, or change real game activity. Other Discord users will not see these mock values. Custom tooltips identify them as local showcase values.
