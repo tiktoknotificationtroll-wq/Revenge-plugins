@@ -1,0 +1,14 @@
+{
+  "name": "BadgeForge",
+  "version": "1.0.0",
+  "description": "Local-only custom profile badge and game-time showcase for your own profile.",
+  "authors": [
+    {
+      "name": "Niche Games"
+    }
+  ],
+  "main": "index.js",
+  "vendetta": {
+    "icon": "ic_badge_staff"
+  }
+}
