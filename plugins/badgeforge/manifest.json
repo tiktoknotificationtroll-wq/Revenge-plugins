@@ -6,7 +6,7 @@
             "name": "Niche Games"
         }
     ],
-    "main": "src/index.ts",
+    "main": "src/index.tsx",
     "vendetta": {
         "icon": "ic_badge_staff"
     }
