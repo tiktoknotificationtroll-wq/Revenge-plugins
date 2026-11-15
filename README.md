@@ -1,29 +1,33 @@
 # BadgeForge for Revenge
 
-A local-only profile flex editor for Revenge on Android.
+A Revenge plugin repository containing BadgeForge.
 
-## Features
-- Custom badge labels, including fictional or parody labels.
-- Pretend account-created date for the local preview.
-- Custom game names and playtime strings.
-- Live profile showcase preview in the plugin settings screen.
-- Settings saved locally on the device.
+## Install in current Revenge
 
-## Important limitation
-BadgeForge currently renders a **local preview inside its own settings page**. It does not grant Discord badges, alter the server-side account creation date or playtime, or make those mock values visible to other Discord users. Discord does not expose an API for granting those entitlements. The plugin does not collect or transmit account tokens.
+**Add this as a repository, not as a direct plugin/manifest URL.**
 
-## Install
-The GitHub Actions workflow builds the plugin ZIP and publishes a static Revenge repository to the `gh-pages` branch.
+1. Open **Settings → Revenge → Plugins**.
+2. Tap the small **settings gear** beside the Plugins heading.
+3. Choose **Add repository**.
+4. Paste the repository index URL below.
+5. Return to Plugins, open **Browse Plugins** with the + button, find BadgeForge, and install it.
 
-After the first successful workflow run, add this repository URL in Revenge:
+Repository index URL:
+
 ```
 https://raw.githubusercontent.com/tiktoknotificationtroll-wq/Revenge-plugins/gh-pages/index.json
 ```
 
-In Revenge: Settings → Revenge → Plugins → settings gear → Add repository. Then browse for **BadgeForge** and install it.
+The published repository index and package are on the `gh-pages` branch under `index.json` and `pool/`.
 
-If the repository URL returns 404, open the Actions tab and check that **Build and publish BadgeForge repository** has completed successfully. The first run needs to publish the `gh-pages` branch.
+## Do not use these
+- Do not paste the repository URL into a legacy single-plugin manifest importer.
+- Do not use the `legacy/badgeforge` folder URL. It is not a current Revenge plugin repository.
+- Do not append a slash to the `index.json` URL.
+
+## BadgeForge limitations
+BadgeForge is a local showcase editor. It cannot grant real Discord-issued badges, alter Discord's server-side account creation date, or modify actual game playtime. Custom values are only mock display data within the plugin.
 
 ## Source
-Plugin source: `plugins/badgeforge/index.js`
+Current plugin source: `plugins/badgeforge/js/index.tsx`
 Manifest: `plugins/badgeforge/manifest.json`
