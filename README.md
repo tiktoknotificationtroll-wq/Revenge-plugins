@@ -1,24 +1,22 @@
 # BadgeForge
 
-A Vendetta/Bunny-style JavaScript plugin for Revenge, following the same folder-per-plugin layout as Rico040's Bunny plugin repository.
+BadgeForge is a cosmetic profile showcase plugin for the Revenge/Bunny family of Discord clients.
 
 ## Install
 
-Paste this exact GitHub Pages plugin folder URL into **Revenge → Plugins → +**:
+Paste this GitHub Pages **folder URL** into Revenge → Plugins → +:
 
 `https://tiktoknotificationtroll-wq.github.io/Revenge-plugins/badgeforge/`
 
-The folder contains the generated `manifest.json` and `index.js` bundle. Do not use a raw.githubusercontent.com URL, a repository index URL, or the source folder under `plugins/`.
+This is intentionally the same style as the Freemoji URL:
+`https://rico040.github.io/bunny-plugins/freemoji/`
+
+**Do not use** a `raw.githubusercontent.com` directory URL such as `.../main/legacy/badgeforge`. Raw GitHub URLs address individual files, not folders. The published plugin folder is on the `gh-pages` branch and contains `manifest.json` plus the compiled `index.js`.
 
 ## Build
 
-The GitHub Actions workflow builds `plugins/badgeforge/manifest.json` and `plugins/badgeforge/src/index.tsx` into `dist/badgeforge/`, then publishes `dist/` to the `gh-pages` branch.
+The source is in `plugins/badgeforge/`. GitHub Actions compiles the TypeScript/JSX entry point into `dist/badgeforge/index.js`, updates the manifest's `main` field and SHA-256 hash, then publishes `dist/` to the `gh-pages` branch.
 
 ## Features
 
-- Locally configurable profile tags
-- Optional pretend account creation date
-- Game names with mock playtime values
-- Settings persist in plugin storage
-
-All values are cosmetic and local to this client. They do not change Discord's server-side account data, issue official badges, or appear to other users viewing the profile.
+The plugin includes a local settings/preview screen for custom badge labels, a fictional account creation date and mock game playtime. These values are cosmetic and local to this client. They do not grant Discord-issued badges or alter server-side account data.
