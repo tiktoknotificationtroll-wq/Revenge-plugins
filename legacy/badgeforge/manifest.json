@@ -1,6 +1,6 @@
 {
   "name": "BadgeForge",
-  "description": "Local profile showcase editor for custom badge labels and pretend game stats.",
+  "description": "Local profile showcase plugin. Custom labels and pretend account/game statistics for your own showcase.",
   "authors": [
     {
       "name": "Niche Games"
