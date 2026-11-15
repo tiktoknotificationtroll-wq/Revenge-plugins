@@ -2,7 +2,7 @@
   "format": 1,
   "id": "dev.nichegames.badgeforge",
   "name": "BadgeForge",
-  "description": "Create a local profile flex preview with custom badge labels, account age and game hours.",
+  "description": "Create a local profile showcase with custom badge labels, pretend account age and game hours.",
   "author": "Niche Games",
   "version": "1.0.0",
   "dependencies": {
