@@ -1,25 +1,24 @@
-# BadgeForge for classic Revenge
+# BadgeForge
 
-A classic Vendetta-compatible JavaScript plugin for the Revenge Plugins screen shown in older/classic Revenge builds.
+A Vendetta/Bunny-style JavaScript plugin for Revenge, following the same folder-per-plugin layout as Rico040's Bunny plugin repository.
 
 ## Install
 
-Use the **folder URL** in Revenge → Plugins → + → Install a plugin:
+Paste this exact GitHub Pages plugin folder URL into **Revenge → Plugins → +**:
 
 `https://tiktoknotificationtroll-wq.github.io/Revenge-plugins/badgeforge/`
 
-Do not use raw.githubusercontent.com. The classic loader fetches `manifest.json` and then the JavaScript file from the GitHub Pages folder.
+The folder contains the generated `manifest.json` and `index.js` bundle. Do not use a raw.githubusercontent.com URL, a repository index URL, or the source folder under `plugins/`.
 
-GitHub Actions deploys the `docs/` folder to GitHub Pages. Wait for the workflow named **Deploy BadgeForge to GitHub Pages** to finish successfully before installing.
+## Build
+
+The GitHub Actions workflow builds `plugins/badgeforge/manifest.json` and `plugins/badgeforge/src/index.tsx` into `dist/badgeforge/`, then publishes `dist/` to the `gh-pages` branch.
 
 ## Features
 
-- Custom local badge labels, with optional Discord-style icon names
-- Pretend account-created date shown in a custom badge tooltip
-- Game names and pretend hours shown in custom badge tooltips
-- Persistent settings in Revenge plugin storage
-- Patches only the current user's profile badge hook in the local client
+- Locally configurable profile tags
+- Optional pretend account creation date
+- Game names with mock playtime values
+- Settings persist in plugin storage
 
-## Important
-
-This is a local visual showcase. It does not grant Discord badges, alter server-side account creation dates, or change real game activity. Other Discord users will not see these mock values. Custom tooltips identify them as local showcase values.
+All values are cosmetic and local to this client. They do not change Discord's server-side account data, issue official badges, or appear to other users viewing the profile.
