@@ -1,50 +1,10 @@
-name: Build and publish BadgeForge repository
+name: Legacy repository publisher (disabled)
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: write
-
-concurrency:
-  group: badgeforge-publish
-  cancel-in-progress: false
-
 jobs:
-  publish:
+  retired:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: 25
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.6.1'
-
-      - name: Install JavaScript dependencies
-        run: bun install
-
-      - name: Build installable plugin ZIP
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gradle --no-daemon packageAllPlugins
-
-      - name: Generate repository index
-        run: |
-          mkdir -p public/pool
-          cp build/dist/dev.nichegames.badgeforge@1.0.0.zip public/pool/
-          bun run generate-index -- --dist public/pool --base-url "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/gh-pages/pool" --out public/index.json
-          test -s public/index.json
-
-      - name: Publish repository branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./public
-          force_orphan: true
+      - run: echo "The classic Revenge plugin is deployed by deploy-badgeforge-pages.yml."
