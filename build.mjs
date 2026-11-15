@@ -33,7 +33,7 @@ for (const plugin of await readdir("./plugins")) {
   const bundle = await rollup({ input: `${base}/${manifest.main}`, onwarn: () => {}, plugins });
   await bundle.write({
     file: `${out}/index.js`, format: "iife", compact: true, exports: "named",
-    globals(id) { if (id.startsWith("@vendetta")) return id.substring(1).replace(/\\//g, "."); if (id === "react") return "window.React"; return null; }
+    globals(id) { if (id.startsWith("@vendetta")) return id.substring(1).replaceAll("/", "."); if (id === "react") return "window.React"; return null; }
   });
   await bundle.close();
   manifest.hash = createHash("sha256").update(await readFile(`${out}/index.js`)).digest("hex");
