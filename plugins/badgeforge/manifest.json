@@ -1,19 +1,13 @@
 {
-  "format": 1,
-  "id": "dev.nichegames.badgeforge",
-  "name": "BadgeForge",
-  "description": "Create a local profile showcase with custom badge labels, pretend account age and game hours.",
-  "author": "Niche Games",
-  "version": "1.0.0",
-  "dependencies": {
-    "revenge.api": {
-      "version": ">=1"
-    },
-    "discord": {
-      "version": "*"
+    "name": "BadgeForge",
+    "description": "Create local-only custom profile tags, a pretend account age, and mock game playtime for your own profile.",
+    "authors": [
+        {
+            "name": "Niche Games"
+        }
+    ],
+    "main": "src/index.ts",
+    "vendetta": {
+        "icon": "ic_badge_staff"
     }
-  },
-  "dist": {
-    "script": "index.js"
-  }
 }
