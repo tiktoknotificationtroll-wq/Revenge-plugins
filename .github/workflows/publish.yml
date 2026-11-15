@@ -1,0 +1,46 @@
+name: Build and publish BadgeForge repository
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build plugin bundle
+        run: bun run build badgeforge
+
+      - name: Package plugin and generate repository index
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          mkdir -p public/pool
+          zip -j public/pool/dev.nichegames.badgeforge@1.0.0.zip \
+            plugins/badgeforge/manifest.json \
+            plugins/badgeforge/build/js/index.js
+          bun run generate-index -- \
+            --dist public/pool \
+            --base-url "https://raw.githubusercontent.com/${REPOSITORY}/gh-pages/pool" \
+            --out public/index.json
+
+      - name: Publish static plugin repository
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
+          force_orphan: true
