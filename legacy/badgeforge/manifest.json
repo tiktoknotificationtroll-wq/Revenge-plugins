@@ -1,0 +1,13 @@
+{
+  "name": "BadgeForge",
+  "description": "Local profile showcase editor for custom badge labels and pretend game stats.",
+  "authors": [
+    {
+      "name": "Niche Games"
+    }
+  ],
+  "main": "index.js",
+  "vendetta": {
+    "icon": "ic_badge_staff"
+  }
+}
