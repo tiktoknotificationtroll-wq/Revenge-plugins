@@ -8,36 +8,34 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: badgeforge-publish
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 25
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
+      - name: Install JavaScript dependencies
         run: bun install
 
-      - name: Build plugin bundle
-        run: bun run build badgeforge
+      - name: Build installable plugin ZIP
+        run: ./gradlew --no-daemon packageAllPlugins
 
-      - name: Package plugin and generate repository index
-        env:
-          REPOSITORY: ${{ github.repository }}
+      - name: Generate repository index
         run: |
           mkdir -p public/pool
-          zip -j public/pool/dev.nichegames.badgeforge@1.0.0.zip \
-            plugins/badgeforge/manifest.json \
-            plugins/badgeforge/build/js/index.js
-          bun run generate-index -- \
-            --dist public/pool \
-            --base-url "https://raw.githubusercontent.com/${REPOSITORY}/gh-pages/pool" \
-            --out public/index.json
+          cp build/dist/dev.nichegames.badgeforge@1.0.0.zip public/pool/
+          bun run generate-index -- --dist public/pool --base-url "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/gh-pages/pool" --out public/index.json
 
-      - name: Publish static plugin repository
+      - name: Publish repository branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
