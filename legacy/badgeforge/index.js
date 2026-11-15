@@ -1,16 +1,10 @@
-// BadgeForge legacy Revenge/Vendetta-style plugin entry point.
-// This is a safe install smoke test and local-only showcase scaffold.
-const { logger } = window.Vendetta ?? window.Bunny ?? {};
-let toast;
-export default {
+({
   onLoad() {
-    try {
-      logger?.log?.("[BadgeForge] Loaded successfully.");
-    } catch {}
+    const logger = window.vendetta?.logger ?? window.Vendetta?.logger ?? window.Bunny?.logger;
+    try { logger?.log?.("[BadgeForge] Loaded."); } catch {}
   },
   onUnload() {
-    try {
-      logger?.log?.("[BadgeForge] Unloaded.");
-    } catch {}
-  },
-};
+    const logger = window.vendetta?.logger ?? window.Vendetta?.logger ?? window.Bunny?.logger;
+    try { logger?.log?.("[BadgeForge] Unloaded."); } catch {}
+  }
+})
