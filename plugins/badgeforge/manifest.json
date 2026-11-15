@@ -1,0 +1,19 @@
+{
+  "format": 1,
+  "id": "dev.nichegames.badgeforge",
+  "name": "BadgeForge",
+  "description": "Create a local profile flex preview with custom badge labels, account age and game hours.",
+  "author": "Niche Games",
+  "version": "1.0.0",
+  "dependencies": {
+    "revenge.api": {
+      "version": ">=1"
+    },
+    "discord": {
+      "version": "*"
+    }
+  },
+  "dist": {
+    "script": "index.js"
+  }
+}
